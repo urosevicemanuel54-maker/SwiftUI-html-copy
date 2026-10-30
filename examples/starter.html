@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="auto" data-lg-refraction>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liquid Glass Kit · Starter</title>
+
+  <!-- Local copy. Once published, swap for the CDN links in README.md -->
+  <link rel="stylesheet" href="../dist/liquid-glass.min.css" />
+  <script src="../dist/liquid-glass.min.js" defer></script>
+
+  <style>
+    body { margin: 0; min-height: 100vh; font-family: var(--font); display: grid; place-items: center; padding: 40px 16px;
+      background: radial-gradient(circle at 15% 20%, #ffb340 0 18%, transparent 45%), radial-gradient(circle at 85% 30%, #ff5fa2 0 20%, transparent 50%), linear-gradient(160deg, #1f6bff, #6b3cff 60%, #0d1b4d); }
+    .card { --r: 36px; width: min(420px, 100%); padding: 24px; display: grid; gap: 18px; }
+    .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    h1 { margin: 0; font-size: 28px; letter-spacing: -.02em; }
+  </style>
+</head>
+<body>
+  <main class="card lg-glass thick" data-lens>
+    <h1>Liquid Glass</h1>
+
+    <!-- Buttons -->
+    <div class="row">
+      <button class="lg-btn lg-glass interactive"><i data-icon="heart"></i>Glass</button>
+      <button class="lg-btn lg-glass tinted interactive">Prominent</button>
+      <button class="lg-btn icon lg-glass interactive" aria-label="Share"><i data-icon="share"></i></button>
+    </div>
+
+    <!-- Toggle + slider + picker -->
+    <div class="row"><span style="flex:1">Wi-Fi</span><button class="lg-toggle" aria-checked="true" aria-label="Wi-Fi"></button></div>
+    <div class="lg-slider" data-value=".6" aria-label="Volume"></div>
+    <div class="lg-seg"><button aria-selected="true">Day</button><button>Week</button><button>Month</button></div>
+
+    <!-- Overlays with zero JavaScript -->
+    <div class="row">
+      <button class="lg-btn small lg-glass interactive" data-lg-alert data-title="Delete photo?" data-message="This can't be undone." data-actions="Cancel:cancel|Delete:destructive">Alert</button>
+      <button class="lg-btn small lg-glass interactive" data-lg-sheet="#settingsSheet" data-title="Settings">Sheet</button>
+      <button class="lg-btn small lg-glass interactive" data-lg-menu="#moreMenu"><i data-icon="ellipsis"></i>Menu</button>
+      <button class="lg-btn small lg-glass interactive" data-lg-toast="Saved!">Toast</button>
+    </div>
+  </main>
+
+  <template id="settingsSheet">
+    <div class="lg-form"><div class="lg-section"><div class="lg-group">
+      <div class="lg-row"><span style="flex:1">Notifications</span><button class="lg-toggle" aria-checked="true" aria-label="Notifications"></button></div>
+      <div class="lg-row"><span style="flex:1">Dark Mode</span><button class="lg-toggle" id="darkToggle" aria-label="Dark Mode"></button></div>
+    </div></div></div>
+  </template>
+
+  <template id="moreMenu">
+    <button value="copy" data-lg-icon="square-stack">Copy</button>
+    <button value="share" data-lg-icon="share">Share…</button>
+    <hr>
+    <button value="delete" data-lg-icon="trash" data-role="destructive">Delete</button>
+  </template>
+
+  <script>
+    // Optional: listen to events from declarative components
+    document.addEventListener('lg:select', (e) => LG.toast({ text: 'Picked ' + e.detail.label }));
+    document.addEventListener('lg:result', (e) => console.log('Alert result:', e.detail));
+    document.addEventListener('change', (e) => {
+      if (e.target.id === 'darkToggle') LG.setTheme(e.detail ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
