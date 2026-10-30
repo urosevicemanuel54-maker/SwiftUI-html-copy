@@ -1,0 +1,27 @@
+{
+  "name": "liquid-glass-kit",
+  "version": "1.0.0",
+  "description": "iOS 26-style Liquid Glass UI for any website: glass buttons, toggles, sliders, tab bars, sheets, menus, alerts and more. Plain CSS + vanilla JS, zero dependencies.",
+  "keywords": ["liquid glass", "glassmorphism", "ios", "swiftui", "ui kit", "css", "components", "apple design"],
+  "license": "MIT",
+  "author": "codeX",
+  "main": "dist/liquid-glass.js",
+  "module": "dist/liquid-glass.esm.js",
+  "style": "dist/liquid-glass.css",
+  "unpkg": "dist/liquid-glass.min.js",
+  "jsdelivr": "dist/liquid-glass.min.js",
+  "exports": {
+    ".": { "import": "./dist/liquid-glass.esm.js", "default": "./dist/liquid-glass.js" },
+    "./dist/*": "./dist/*",
+    "./css": "./dist/liquid-glass.css"
+  },
+  "files": ["dist", "src", "README.md", "COMPONENTS.md", "LICENSE"],
+  "sideEffects": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
