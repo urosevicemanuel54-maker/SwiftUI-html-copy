@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1b4d" />
+  <title>Liquid Glass Kit · SwiftUI components in HTML, CSS &amp; JS</title>
+  <link rel="stylesheet" href="../dist/liquid-glass.css" />
+  <link rel="stylesheet" href="showcase.css" />
+</head>
+<body class="wp-tahoe">
+  <div class="wallpaper" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="grain"></div></div>
+
+  <!-- ===================== Top bar ===================== -->
+  <header class="site-bar lg-glass thick" data-lens>
+    <a class="brand" href="#top"><span class="mark"><i data-icon="sparkles"></i></span>Liquid Glass Kit</a>
+    <nav>
+      <a href="#install">Install</a><a href="#controls">Controls</a><a href="#containers">Containers</a><a href="#overlays">Overlays</a><a href="#system">System UI</a>
+    </nav>
+    <div class="tools">
+      <label class="lens-switch"><span>Refraction</span><button class="lg-toggle" id="lensToggle" aria-label="Refraction lens" style="--tint: var(--blue)"></button></label>
+      <button class="lg-btn icon lg-glass interactive" id="wpBtn" aria-label="Wallpaper"><i data-icon="paintbrush"></i></button>
+      <button class="lg-btn icon lg-glass interactive" id="themeBtn" aria-label="Toggle appearance"><i data-icon="moon"></i></button>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow lg-glass"><span class="dot"></span>SwiftUI · iOS 26 design language</span>
+        <h1>Liquid Glass,<br><em>poured into the web.</em></h1>
+        <p class="lede">The full SwiftUI component set rebuilt in plain HTML, CSS and JS, with real refraction, specular light and spring physics.</p>
+        <div class="cta">
+          <a class="lg-btn large lg-glass tinted interactive" href="#controls"><i data-icon="sparkles"></i>Explore components</a>
+          <button class="lg-btn large lg-glass interactive" id="heroPlay"><i data-icon="play"></i>Play on device</button>
+        </div>
+        <div class="chips"><span>.glassEffect()</span><span>.buttonStyle(.glass)</span><span>TabView</span><span>.sheet</span><span>Toggle</span><span>Slider</span><span>Menu</span></div>
+      </div>
+
+      <!-- ===================== iPhone ===================== -->
+      <div class="device-wrap">
+        <div class="device">
+          <div class="screen" id="phone" data-overlay-host>
+            <div class="island" id="island"><span class="art-s" id="islandArt"></span><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+            <div class="status"><span>9:41</span><span class="r"><i data-icon="antenna"></i><i data-icon="wifi"></i><span class="bat"><i></i></span></span></div>
+
+            <div class="navbar">
+              <span class="spacer"></span>
+              <span class="inline-title" id="inlineTitle">Home</span>
+              <div class="lg-glass-group lg-glass" data-lens>
+                <button class="gbtn" id="moreBtn" aria-label="More"><i data-icon="ellipsis"></i></button>
+              </div>
+              <button class="avatar" id="avatarBtn" style="margin-left:10px" aria-label="Account">EU</button>
+            </div>
+            <div class="lg-scroll-edge top"></div>
+
+            <!-- Home -->
+            <section class="view active" data-view="home">
+              <h1 class="large-title">Home</h1>
+              <div class="section-h">Top Picks for You<i data-icon="chevron-right"></i></div>
+              <div class="carousel" id="picks"></div>
+              <div class="section-h">Recently Played<i data-icon="chevron-right"></i></div>
+              <div class="tiles" id="recent"></div>
+              <div class="section-h">Made for You<i data-icon="chevron-right"></i></div>
+              <div class="tiles" id="made"></div>
+            </section>
+
+            <!-- Library -->
+            <section class="view" data-view="library">
+              <h1 class="large-title">Library</h1>
+              <div class="lg-section lib-list">
+                <div class="lg-group" style="background:transparent">
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="list"></i></span><span class="grow">Playlists</span><i class="chev" data-icon="chevron-right"></i></div>
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="person"></i></span><span class="grow">Artists</span><i class="chev" data-icon="chevron-right"></i></div>
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="square-stack"></i></span><span class="grow">Albums</span><i class="chev" data-icon="chevron-right"></i></div>
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="music"></i></span><span class="grow">Songs</span><i class="chev" data-icon="chevron-right"></i></div>
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="download"></i></span><span class="grow">Downloaded</span><i class="chev" data-icon="chevron-right"></i></div>
+                </div>
+              </div>
+              <div class="lg-section">
+                <header>Recently Added · swipe a row ←</header>
+                <div class="lg-group" id="songs" style="--sep-inset: 82px"></div>
+              </div>
+            </section>
+
+            <!-- Settings -->
+            <section class="view grouped" data-view="settings">
+              <h1 class="large-title">Settings</h1>
+              <div class="lg-form">
+                <div class="lg-section"><div class="lg-group">
+                  <div class="lg-row link" id="profileRow"><div class="profile-card grow"><span class="avatar">EU</span><span><span class="title" style="font-weight:600;font-size:20px">Emanuel U.</span><span class="sub">Apple Account, iCloud+ and more</span></span></div><i class="chev" data-icon="chevron-right"></i></div>
+                </div></div>
+
+                <div class="lg-section"><div class="lg-group icons">
+                  <div class="lg-row"><span class="lg-sq" style="--c:var(--orange)"><i data-icon="airplane"></i></span><span class="grow">Airplane Mode</span><button class="lg-toggle" id="airplane" aria-label="Airplane Mode"></button></div>
+                  <div class="lg-row link"><span class="lg-sq"><i data-icon="wifi"></i></span><span class="grow">Wi-Fi</span><span class="value" id="wifiVal">Studio 5G</span><i class="chev" data-icon="chevron-right"></i></div>
+                  <div class="lg-row"><span class="lg-sq"><i data-icon="bluetooth"></i></span><span class="grow">Bluetooth</span><button class="lg-toggle" aria-checked="true" aria-label="Bluetooth"></button></div>
+                  <div class="lg-row"><span class="lg-sq" style="--c:var(--indigo)"><i data-icon="moon"></i></span><span class="grow">Focus</span><button class="lg-toggle" style="--tint:var(--indigo)" aria-label="Focus"></button></div>
+                </div></div>
+
+                <div class="lg-section"><header>Playback</header><div class="lg-group">
+                  <div class="lg-row"><div class="slider-row"><i data-icon="speaker-low"></i><div class="lg-slider" data-value=".6" aria-label="Volume"></div><i data-icon="speaker"></i></div></div>
+                  <div class="lg-row"><span class="grow">Crossfade</span><span class="val" id="xfVal">4 s</span><div class="lg-stepper" id="xf" data-min="0" data-max="12" data-value="4"></div></div>
+                  <div class="lg-row" style="flex-direction:column;align-items:stretch;gap:10px;padding:14px 20px"><span>Audio Quality</span>
+                    <div class="lg-seg"><button>High</button><button aria-selected="true">Lossless</button><button>Hi-Res</button></div></div>
+                </div><footer>Lossless uses about 36 MB per 3-minute song.</footer></div>
+
+                <div class="lg-section"><header>Storage</header><div class="lg-group">
+                  <div class="lg-row" style="gap:18px"><div class="lg-gauge" data-value=".72" data-size="58" data-from="var(--orange)" data-to="var(--red)"><b style="font-size:15px">72%</b></div><span class="grow"><span class="title">iPhone Storage</span><span class="sub">184 GB of 256 GB used</span></span></div>
+                  <div class="lg-disclosure"><div class="lg-row link"><span class="grow">Advanced</span><i class="chev" data-icon="chevron-right"></i></div>
+                    <div class="content"><div>
+                      <div class="lg-row"><span class="grow">Optimize Storage</span><button class="lg-toggle" aria-checked="true" aria-label="Optimize Storage"></button></div>
+                      <div class="lg-row"><span class="grow">Dolby Atmos</span><button class="lg-toggle" aria-label="Dolby Atmos"></button></div>
+                    </div></div></div>
+                </div></div>
+
+                <div class="lg-section"><div class="lg-group">
+                  <div class="lg-row link" id="resetRow" style="color:var(--blue)">Reset Library…</div>
+                  <div class="lg-row link" id="signOutRow" style="color:var(--red)">Sign Out</div>
+                </div></div>
+              </div>
+            </section>
+
+            <!-- Search -->
+            <section class="view" data-view="search">
+              <h1 class="large-title">Search</h1>
+              <div id="searchBrowse">
+                <div class="section-h" style="margin-top:4px">Browse Categories</div>
+                <div class="cats" id="cats"></div>
+              </div>
+              <div class="lg-section results" id="results" hidden><div class="lg-group" id="resultList" style="--sep-inset: 82px"></div></div>
+            </section>
+
+            <div class="lg-scroll-edge bottom"></div>
+
+            <!-- TabView + bottom accessory -->
+            <div class="bottom-bar" id="bottomBar">
+              <div class="accessory lg-glass interactive" id="accessory" style="--press-scale:1.03" data-lens>
+                <span class="thumb-art" id="accArt"></span>
+                <span class="txt" id="accTxt">Not Playing<small>Tap a record</small></span>
+                <button class="ab" id="accPlay" aria-label="Play"><i data-icon="play"></i></button>
+                <button class="ab" id="accNext" aria-label="Next"><i data-icon="forward"></i></button>
+                <span class="mini-prog"><i id="accProg"></i></span>
+              </div>
+              <div class="lg-tabbar lg-glass" id="tabbar" data-lens>
+                <button class="tab" data-tab="home" aria-selected="true"><i data-icon="house"></i><span>Home</span></button>
+                <button class="tab" data-tab="library"><i data-icon="library"></i><span>Library</span><b class="lg-badge">3</b></button>
+                <button class="tab" data-tab="settings"><i data-icon="gear"></i><span>Settings</span></button>
+              </div>
+              <div class="lg-tab-search lg-glass interactive" id="searchTab" role="button" aria-label="Search" data-lens>
+                <div class="s-in"><i data-icon="search"></i><input id="searchInput" placeholder="Artists, Songs, Lyrics" aria-label="Search" /><i class="mic" data-icon="mic"></i></div>
+              </div>
+            </div>
+            <div class="home-ind"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Install ===================== -->
+    <section class="gallery" id="install">
+      <div class="g-head"><h2>Use it anywhere</h2><p>Two tags, like an icon library. Every component turns on by itself.</p></div>
+      <div class="install lg-glass thick" data-lens>
+        <div class="install-top"><span class="lg-seg install-seg"><button aria-selected="true" data-value="cdn">CDN</button><button data-value="npm">npm</button></span>
+          <button class="lg-btn small lg-glass tinted interactive" id="copyBtn"><i data-icon="square-stack"></i>Copy</button></div>
+        <pre id="installCode"></pre>
+        <div class="install-demo">
+          <button class="lg-btn lg-glass tinted interactive" data-lg-alert data-title="Hello from the CDN" data-message="No JavaScript written. Just a data attribute." data-actions="Nice:primary">data-lg-alert</button>
+          <button class="lg-btn lg-glass interactive" data-lg-menu="#installMenu" data-align="start"><i data-icon="ellipsis"></i>data-lg-menu</button>
+          <button class="lg-btn lg-glass interactive" data-lg-toast="Copied to clipboard" data-toast-icon="square-stack">data-lg-toast</button>
+          <template id="installMenu"><header>Share</header><button value="copy" data-lg-icon="square-stack">Copy Link</button><button value="share" data-lg-icon="share">Share…</button><hr><button value="del" data-lg-icon="trash" data-role="destructive">Delete</button></template>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Controls ===================== -->
+    <section class="gallery" id="controls">
+      <div class="g-head"><h2>Controls</h2><p>Every control squashes, glows and springs like it does on device. Drag the toggles, sliders and pickers.</p></div>
+      <div class="grid">
+
+        <article class="stage wide bg-sunset on-photo">
+          <div class="demo">
+            <div class="row"><span class="lbl">.glass</span>
+              <button class="lg-btn lg-glass interactive">Continue</button>
+              <button class="lg-btn lg-glass interactive"><i data-icon="heart"></i>Favorite</button>
+              <button class="lg-btn icon lg-glass interactive" aria-label="Share"><i data-icon="share"></i></button>
+              <button class="lg-btn icon lg-glass interactive" aria-label="More"><i data-icon="ellipsis"></i></button>
+            </div>
+            <div class="row"><span class="lbl">.glassProminent</span>
+              <button class="lg-btn lg-glass tinted interactive">Subscribe</button>
+              <button class="lg-btn lg-glass tinted interactive" style="--tint:var(--pink)"><i data-icon="heart-fill"></i>Love</button>
+              <button class="lg-btn lg-glass tinted interactive" style="--tint:var(--green)"><i data-icon="check"></i>Done</button>
+              <button class="lg-btn icon lg-glass tinted interactive" style="--tint:var(--orange)" aria-label="Boost"><i data-icon="bolt"></i></button>
+            </div>
+            <div class="row"><span class="lbl">sizes</span>
+              <button class="lg-btn mini lg-glass interactive">Mini</button>
+              <button class="lg-btn small lg-glass interactive">Small</button>
+              <button class="lg-btn lg-glass interactive">Regular</button>
+              <button class="lg-btn large lg-glass tinted interactive" style="--tint:var(--indigo)">Large</button>
+            </div>
+          </div>
+          <div class="caption"><b>Button</b><code>.buttonStyle(.glass) · .glassProminent</code></div>
+        </article>
+
+        <article class="stage surface">
+          <div class="demo">
+            <div class="row"><button class="lg-btn bordered">Bordered</button><button class="lg-btn filled">Prominent</button></div>
+            <div class="row"><button class="lg-btn bordered" style="--tint:var(--purple)">Tinted</button><button class="lg-btn filled destructive"><i data-icon="trash"></i>Delete</button></div>
+            <div class="row"><button class="lg-btn plain">Plain</button><button class="lg-btn gray">Gray</button><button class="lg-btn filled" disabled>Disabled</button></div>
+          </div>
+          <div class="caption"><b>Classic styles</b><code>.bordered · .borderedProminent</code></div>
+        </article>
+
+        <article class="stage surface">
+          <div class="demo">
+            <div class="mini-form"><div class="lg-group icons">
+              <div class="lg-row"><span class="lg-sq"><i data-icon="wifi"></i></span><span class="grow">Wi-Fi</span><button class="lg-toggle" aria-checked="true" aria-label="Wi-Fi"></button></div>
+              <div class="lg-row"><span class="lg-sq" style="--c:var(--indigo)"><i data-icon="moon"></i></span><span class="grow">Sleep Focus</span><button class="lg-toggle" style="--tint:var(--indigo)" aria-label="Sleep Focus"></button></div>
+              <div class="lg-row"><span class="lg-sq" style="--c:var(--pink)"><i data-icon="bell"></i></span><span class="grow">Notifications</span><button class="lg-toggle" aria-checked="true" style="--tint:var(--pink)" aria-label="Notifications"></button></div>
+              <div class="lg-row"><span class="lg-sq" style="--c:var(--gray)"><i data-icon="lock"></i></span><span class="grow" style="opacity:.4">Locked</span><button class="lg-toggle" disabled aria-label="Locked"></button></div>
+            </div></div>
+          </div>
+          <div class="caption"><b>Toggle</b><code>Toggle(isOn:) · .tint(.indigo)</code></div>
+        </article>
+
+        <article class="stage bg-ocean on-photo">
+          <div class="demo">
+            <div class="slider-row" style="color:rgba(255,255,255,.85)"><i data-icon="sun"></i><div class="lg-slider" data-value=".55" style="--tint:#fff" aria-label="Brightness"></div></div>
+            <div class="slider-row" style="color:rgba(255,255,255,.85)"><span class="lbl" style="min-width:auto">step</span><div class="lg-slider" data-min="0" data-max="4" data-step="1" data-value="2" data-ticks="5" style="--tint:var(--yellow)" aria-label="Steps"></div></div>
+            <div>
+              <div class="lg-slider bar" id="scrub" data-value=".35" style="--tint:#fff" aria-label="Scrubber"></div>
+              <div class="times-s"><span id="scrubA">1:12</span><span>-2:14</span></div>
+            </div>
+          </div>
+          <div class="caption"><b>Slider</b><code>Slider(value:in:step:)</code></div>
+        </article>
+
+        <article class="stage surface">
+          <div class="demo">
+            <div class="row nowrap"><span class="grow" style="flex:1;font-size:17px">Guests</span><span class="val" id="guestVal">2</span><div class="lg-stepper" id="guests" data-min="1" data-max="9" data-value="2"></div></div>
+            <div class="lg-seg"><button aria-selected="true">Day</button><button>Week</button><button>Month</button><button>Year</button></div>
+            <div class="row nowrap" style="justify-content:space-between"><span style="font-size:17px">Layout</span>
+              <div class="lg-seg" style="width:120px"><button aria-label="List"><i data-icon="list"></i></button><button aria-selected="true" aria-label="Grid"><i data-icon="grid"></i></button></div></div>
+          </div>
+          <div class="caption"><b>Stepper · Picker</b><code>.pickerStyle(.segmented)</code></div>
+        </article>
+
+        <article class="stage bg-dusk on-photo">
+          <div class="demo">
+            <div class="lg-search lg-glass" data-lens><i data-icon="search"></i><input placeholder="Search" aria-label="Search" /><i data-icon="mic"></i></div>
+            <input class="lg-field" placeholder="Full name" aria-label="Full name" style="background:rgba(255,255,255,.9);color:#000" />
+            <input class="lg-field" type="password" value="liquidglass" aria-label="Password" style="background:rgba(255,255,255,.9);color:#000" />
+          </div>
+          <div class="caption"><b>Text input</b><code>TextField · SecureField · .searchable</code></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Containers ===================== -->
+    <section class="gallery" id="containers">
+      <div class="g-head"><h2>Glass &amp; containers</h2><p>The material itself, its variants, and the containers that morph glass shapes into each other.</p></div>
+      <div class="grid">
+        <article class="stage wide bg-type">
+          <div class="demo center"><div class="row" style="justify-content:center;gap:18px">
+            <div class="lg-glass glass-swatch" style="--r:34px" data-lens><span>Regular<small>.regular</small></span></div>
+            <div class="lg-glass clear glass-swatch" style="--r:34px" data-lens><span>Clear<small>.clear</small></span></div>
+            <div class="lg-glass tinted glass-swatch" style="--r:34px;--tint:var(--blue)" data-lens><span>Tinted<small>.tint(.blue)</small></span></div>
+            <div class="lg-glass interactive glass-swatch" style="--r:99px" data-lens><span>Press me<small>.interactive()</small></span></div>
+          </div></div>
+          <div class="caption"><b>Glass material</b><code>.glassEffect(.regular.tint(.blue).interactive(), in: .rect(cornerRadius: 34))</code></div>
+        </article>
+
+        <article class="stage bg-stripes on-photo">
+          <div class="demo center">
+            <div class="lg-morph lg-glass" id="morph" data-lens>
+              <button class="m-main" aria-label="Add" aria-expanded="false"><i data-icon="plus"></i></button>
+              <button class="m-item" aria-label="Camera"><i data-icon="camera"></i></button>
+              <button class="m-item" aria-label="Photo"><i data-icon="photo"></i></button>
+              <button class="m-item" aria-label="Voice"><i data-icon="mic"></i></button>
+              <button class="m-item" aria-label="Note"><i data-icon="compose"></i></button>
+            </div>
+            <div class="lg-glass-group lg-glass" data-lens>
+              <button class="gbtn" aria-label="Back"><i data-icon="chevron-left"></i></button>
+              <button class="gbtn" aria-label="Share"><i data-icon="share"></i></button>
+              <button class="gbtn" aria-label="Bookmark"><i data-icon="bookmark"></i></button>
+              <button class="gbtn" aria-label="More"><i data-icon="ellipsis"></i></button>
+            </div>
+          </div>
+          <div class="caption"><b>GlassEffectContainer</b><code>.glassEffectID(_:in:) · .glassEffectUnion</code></div>
+        </article>
+
+        <article class="stage surface">
+          <div class="demo" style="padding:22px 0">
+            <div class="lg-section" style="margin:0 16px"><div class="lg-group icons">
+              <div class="lg-row link"><span class="lg-sq" style="--c:var(--blue)"><i data-icon="globe"></i></span><span class="grow">Language</span><span class="value">English</span><i class="chev" data-icon="chevron-right"></i></div>
+              <div class="lg-swipe"><div class="actions"><button style="background:var(--red)" data-del><i data-icon="trash"></i></button><button style="background:var(--orange)"><i data-icon="bell"></i></button></div>
+                <div class="lg-row"><span class="lg-sq" style="--c:var(--green)"><i data-icon="message"></i></span><span class="grow"><span class="title">Swipe me left</span><span class="sub">.swipeActions</span></span></div></div>
+              <div class="lg-disclosure"><div class="lg-row link"><span class="lg-sq" style="--c:var(--purple)"><i data-icon="eye"></i></span><span class="grow">Display</span><i class="chev" data-icon="chevron-right"></i></div>
+                <div class="content"><div>
+                  <div class="lg-row"><span class="lg-sq" style="--c:var(--yellow)"><i data-icon="sun"></i></span><span class="grow">True Tone</span><button class="lg-toggle" aria-checked="true" aria-label="True Tone"></button></div>
+                </div></div></div>
+            </div></div>
+          </div>
+          <div class="caption"><b>List · DisclosureGroup</b><code>.listStyle(.insetGrouped)</code></div>
+        </article>
+
+        <article class="stage bg-forest on-photo">
+          <div class="demo center">
+            <div class="lg-tabbar-wrap" style="width:100%;max-width:380px">
+              <div class="lg-tabbar lg-glass" data-lens>
+                <button class="tab" aria-selected="true"><i data-icon="house"></i><span>Home</span></button>
+                <button class="tab"><i data-icon="radio"></i><span>Radio</span></button>
+                <button class="tab"><i data-icon="library"></i><span>Library</span><b class="lg-badge">12</b></button>
+              </div>
+              <button class="lg-tab-search lg-glass interactive" aria-label="Search"><i data-icon="search"></i></button>
+            </div>
+            <div class="lg-pages lg-glass" data-count="5" data-index="1" data-lens></div>
+          </div>
+          <div class="caption"><b>TabView · PageControl</b><code>Tab(role: .search) · .badge(12)</code></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== Overlays ===================== -->
+    <section class="gallery" id="overlays">
+      <div class="g-head"><h2>Overlays</h2><p>Menus bloom from their button, alerts land with a spring, sheets snap between detents.</p></div>
+      <div class="grid">
+        <article class="stage bg-checker on-photo">
+          <div class="demo center">
+            <div class="row" style="justify-content:center">
+              <button class="lg-btn lg-glass interactive" id="menuBtn" style="color:#000"><i data-icon="ellipsis"></i>Menu</button>
+              <button class="lg-btn lg-glass tinted interactive" id="alertBtn">Alert</button>
+            </div>
+            <div class="row" style="justify-content:center">
+              <button class="lg-btn lg-glass tinted interactive" id="dialogBtn" style="--tint:var(--red)">Dialog</button>
+              <button class="lg-btn lg-glass tinted interactive" id="sheetBtn" style="--tint:var(--indigo)">Sheet</button>
+              <button class="lg-btn lg-glass tinted interactive" id="toastBtn" style="--tint:var(--green)">Toast</button>
+            </div>
+          </div>
+          <div class="caption"><b>Menu · Alert · Sheet</b><code>.confirmationDialog · .presentationDetents</code></div>
+        </article>
+
+        <article class="stage surface">
+          <div class="demo">
+            <div class="row" style="gap:22px"><span class="lg-spinner"></span><span class="lg-spinner" style="--s:36px"></span><span class="lg-spinner" style="--s:20px;color:var(--blue)"></span><span style="color:var(--label-2);font-size:15px">Loading…</span></div>
+            <div class="lg-progress" id="prog" style="--p:.2"><div></div></div>
+            <div class="lg-progress indeterminate" style="--tint:var(--pink)"><div></div></div>
+            <div class="row" style="gap:20px">
+              <div class="lg-gauge" data-value=".82" data-from="var(--green)" data-to="var(--mint)"><b>82</b><small>BPM</small></div>
+              <div class="lg-gauge" data-value=".46" data-from="var(--yellow)" data-to="var(--orange)"><b>46</b><small>AQI</small></div>
+              <div class="lg-gauge" data-value=".3" data-from="var(--cyan)" data-to="var(--blue)"><b>8°</b><small>LOW</small></div>
+            </div>
+          </div>
+          <div class="caption"><b>ProgressView · Gauge</b><code>.gaugeStyle(.accessoryCircular)</code></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== System UI ===================== -->
+    <section class="gallery" id="system">
+      <div class="g-head"><h2>System UI</h2><p>Control Center and Lock Screen, built from the same glass and the same controls.</p></div>
+      <div class="grid">
+        <article class="stage wide cc-stage bg-dusk on-photo">
+          <div class="demo">
+            <div class="lg-cc-grid">
+              <div class="lg-cc-cluster lg-glass" data-lens>
+                <button class="lg-cc-tile lg-glass" data-cc style="--c:var(--orange)" aria-label="Airplane"><i data-icon="airplane"></i></button>
+                <button class="lg-cc-tile lg-glass on" data-cc style="--c:var(--green)" aria-label="Cellular"><i data-icon="antenna"></i></button>
+                <button class="lg-cc-tile lg-glass on" data-cc style="--c:var(--blue)" aria-label="Wi-Fi"><i data-icon="wifi"></i></button>
+                <button class="lg-cc-tile lg-glass on" data-cc style="--c:var(--blue)" aria-label="Bluetooth"><i data-icon="bluetooth"></i></button>
+              </div>
+              <div class="lg-cc-media lg-glass" data-lens>
+                <div style="display:flex;gap:10px;align-items:center"><span class="thumb-art" id="ccArt" style="position:relative;width:42px;height:42px;flex:none"></span><span style="font:600 14px var(--font);line-height:1.25">Golden Hour<br><small style="opacity:.7;font-weight:400">Sienna Vale</small></span></div>
+                <div class="cc-ctrl"><button aria-label="Previous"><i data-icon="backward"></i></button><button id="ccPlay" aria-label="Play"><i data-icon="play"></i></button><button aria-label="Next"><i data-icon="forward"></i></button></div>
+              </div>
+              <div class="cc-sliders">
+                <div class="lg-slider vertical lg-glass" data-value=".7" style="--r:26px" aria-label="Brightness" data-lens><span class="v-icon"><i data-icon="sun"></i></span></div>
+                <div class="lg-slider vertical lg-glass" data-value=".45" style="--r:26px" aria-label="Volume" data-lens><span class="v-icon"><i data-icon="speaker"></i></span></div>
+              </div>
+              <button class="lg-cc-tile lg-glass circle" data-cc style="--c:#fff" aria-label="Flashlight"><i data-icon="flashlight"></i></button>
+              <button class="lg-cc-tile lg-glass circle" data-cc aria-label="Timer"><i data-icon="timer"></i></button>
+              <button class="lg-cc-tile lg-glass circle" data-cc aria-label="Calculator"><i data-icon="calculator"></i></button>
+              <button class="lg-cc-tile lg-glass circle" data-cc aria-label="Camera"><i data-icon="camera"></i></button>
+              <button class="lg-cc-tile lg-glass on" data-cc style="--c:var(--red);grid-column:span 2;--r:99px;justify-content:start;display:flex;gap:10px;padding:0 18px;font:600 15px var(--font)" aria-label="Rotation lock"><i data-icon="rotation"></i>Rotation Lock</button>
+              <button class="lg-cc-tile lg-glass" data-cc style="grid-column:span 2;--r:99px;display:flex;gap:10px;padding:0 18px;justify-content:start;font:600 15px var(--font);--c:var(--indigo)" aria-label="Focus"><i data-icon="moon"></i>Focus</button>
+            </div>
+          </div>
+          <div class="caption"><b>Control Center</b><code>GlassEffectContainer(spacing: 14)</code></div>
+        </article>
+
+        <article class="stage bg-ocean on-photo">
+          <div class="demo center">
+            <div class="lock-time"><small id="lockDate">Friday, October 30</small><b id="lockTime">9:41</b></div>
+            <div class="notif-stack">
+              <div class="lg-notif lg-glass" data-lens><span class="app" style="background:var(--green)"><i data-icon="message"></i></span><div class="n-body"><div class="n-top"><b>Mira</b><time>now</time></div>The glass on this thing is unreal 😮</div></div>
+              <div class="lg-notif lg-glass" data-lens><span class="app" style="background:var(--pink)"><i data-icon="music"></i></span><div class="n-body"><div class="n-top"><b>Music</b><time>9:30</time></div>New release from Sienna Vale: “Golden Hour”</div></div>
+            </div>
+          </div>
+          <div class="caption"><b>Lock Screen</b><code>.glassEffect(in: .rect(cornerRadius: 26))</code></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">Built with <b>HTML, CSS &amp; vanilla JS</b>. No frameworks. Refraction works best in Chrome, Edge or Arc.</footer>
+
+  <script src="../dist/liquid-glass.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
